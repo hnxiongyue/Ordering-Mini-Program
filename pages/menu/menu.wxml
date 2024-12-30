@@ -1,0 +1,53 @@
+<view class="container">
+  <!-- 顶部背景和信息 -->
+  <view class="header" style="background-image: url('/assets/images/header-bg.jpg')">
+    <view class="restaurant-info">
+      <image class="avatar" src="/assets/images/avatar.jpg" />
+      <view class="info">
+        <view class="name">
+          <text class="title">小王的专属餐厅</text>
+          <text class="vip">V4</text>
+        </view>
+        <text class="member-count">共2人</text>
+      </view>
+      <image class="qrcode" src="/assets/images/qrcode.jpg" />
+    </view>
+    <view class="announcement">公告：本餐厅行政总厨毛师傅严正声明：将竭诚为小王小朋友做好每一餐。</view>
+  </view>
+
+  <view class="search-bar">
+    <input type="text" placeholder="搜索菜品名称或食材" placeholder-class="placeholder" bindinput="onSearch"/>
+    <image class="search-icon" src="/assets/icons/search.png"/>
+  </view>
+
+  <scroll-view class="categories" scroll-x enable-flex>
+    <view 
+      wx:for="{{categories}}" 
+      wx:key="id"
+      class="category-item {{selectedCategory === item.id ? 'active' : ''}}"
+      bindtap="onCategoryChange"
+      data-id="{{item.id}}"
+    >
+      <icon class="category-icon" type="{{item.icon}}" size="24" color="{{item.color}}"/>
+      <text class="category-name">{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <view class="menu-list">
+    <menu-item 
+      wx:for="{{displayMenuItems || menuItems}}" 
+      wx:key="id" 
+      item="{{item}}"
+      bind:addtocart="onAddToCart"
+    />
+  </view>
+
+  <view class="cart-bar" wx:if="{{cart.length > 0}}">
+    <view class="cart-info">
+      <image class="cart-icon" src="/assets/icons/cart.png"/>
+      <view class="cart-count">已选 {{cart.length}} 件</view>
+      <view class="cart-price">¥{{totalPrice}}</view>
+    </view>
+    <button class="order-btn">去结算</button>
+  </view>
+</view> 

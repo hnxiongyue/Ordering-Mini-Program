@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "pages/menu/menu"
+  ],
+  "window": {
+    "navigationBarTitleText": "家庭餐厅",
+    "navigationBarBackgroundColor": "#6b4ee6",
+    "navigationBarTextStyle": "white"
+  }
+}

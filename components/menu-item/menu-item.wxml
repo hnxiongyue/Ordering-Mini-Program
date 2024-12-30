@@ -1,0 +1,26 @@
+<view class="menu-item">
+  <image class="food-image" src="{{item.image}}" mode="aspectFill"/>
+  <view class="food-info">
+    <view>
+      <view class="food-name">{{item.name}}</view>
+      <view class="food-desc">{{item.desc}}</view>
+      <view class="food-rating">
+        <block wx:for="{{item.rating}}" wx:key="index">
+          <icon type="success" size="12" color="#ffd700"/>
+        </block>
+      </view>
+      <view class="food-price">¥{{item.price}}</view>
+    </view>
+    <view class="action-area">
+      <view class="count-ctrl" wx:if="{{count > 0}}">
+        <view class="minus" bindtap="handleMinus">
+          <icon type="cancel" size="16" color="#6b4ee6"/>
+        </view>
+        <view class="count">{{count}}</view>
+      </view>
+      <view class="add-btn" bindtap="handleAdd">
+        <icon type="success" size="16" color="#ffffff"/>
+      </view>
+    </view>
+  </view>
+</view> 
